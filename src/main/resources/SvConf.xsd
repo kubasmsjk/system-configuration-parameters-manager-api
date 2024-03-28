@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:tns="http://www.systemconfigurationparametersmanagerapi.com/svConf"
+           targetNamespace="http://www.systemconfigurationparametersmanagerapi.com/svConf">
+
+        <xs:complexType  name="svConf">
+            <xs:sequence>
+                <xs:element name="attrName" type="xs:string"/>
+                <xs:element name="attrValue" type="xs:string"/>
+                <xs:element name="attrDesc" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+
+    <xs:complexType  name="serviceStatus">
+        <xs:sequence>
+            <xs:element name="status" type="xs:string"/>
+            <xs:element name="message" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:element name="addSvConfRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="svConf" type="tns:svConf"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="addSvConfResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="svConf" type="tns:svConf"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getSvConfRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="svConf" type="tns:svConf"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getSvConfResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="svConf" type="tns:svConf"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="updateSvConfRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="svConf" type="tns:svConf"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="updateSvConfResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="svConf" type="tns:svConf"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="deleteSvConfRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="svConf" type="tns:svConf"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="deleteSvConfResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="svConf" type="tns:svConf"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>
