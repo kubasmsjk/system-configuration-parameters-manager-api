@@ -1,0 +1,24 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: system-configuration-parameters-manager-api
+  datasource:
+    url: jdbc:mysql://localhost:3306/service
+    username: root
+    password: eUfEJVF44xC.x@q
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        default_schema: public
+        format_sql: true
+        immutable_entity_update_query_handling_mode: exception
+        jdbc:
+          batch_size: 50
+    database: mysql
+    database-platform: org.hibernate.dialect.MySQL8Dialect
