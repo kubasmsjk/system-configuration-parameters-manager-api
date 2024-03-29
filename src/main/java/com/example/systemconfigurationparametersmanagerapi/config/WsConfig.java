@@ -1,7 +1,7 @@
 package com.example.systemconfigurationparametersmanagerapi.config;
 
 import com.example.systemconfigurationparametersmanagerapi.exceptions.ObjectNotValidException;
-import com.example.systemconfigurationparametersmanagerapi.handler.GlobalExceptionHandler;
+import com.example.systemconfigurationparametersmanagerapi.handler.GlobalExceptionsHandler;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
@@ -24,7 +24,7 @@ public class WsConfig extends WsConfigurerAdapter {
 
     @Bean
     public SoapFaultMappingExceptionResolver exceptionResolver() {
-        SoapFaultMappingExceptionResolver exceptionResolver = new GlobalExceptionHandler();
+        SoapFaultMappingExceptionResolver exceptionResolver = new GlobalExceptionsHandler();
 
         SoapFaultDefinition faultDefinition = new SoapFaultDefinition();
         faultDefinition.setFaultCode(SoapFaultDefinition.SERVER);
