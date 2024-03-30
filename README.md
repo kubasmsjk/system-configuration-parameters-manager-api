@@ -27,6 +27,10 @@ To down docker-compose use:
 ```bash
 docker compose down
 ```
+Application works on localhost:8080
+Database works on localhost:3306
+Endpoint is on http://localhost:8081/ws
+
 To test endpoints use this file in SoapUI:
 * system-configuration-parameters-manager-soap-test-soapui-project.xml
 
