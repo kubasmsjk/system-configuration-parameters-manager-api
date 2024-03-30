@@ -11,15 +11,15 @@ public class SvConf {
 
     @Id
     @Column(unique = true, length = 25, nullable = false)
-    @NotBlank(message = "The attrName cannot be null and empty.")
+    @NotBlank(message = "The attrName cannot be null or empty.")
     @Size(max = 25, message = "The attrName must consist max 25 characters.")
     private String attrName;
     @Column(length = 25, nullable = false)
-    @NotBlank(message = "The attrValue cannot be null and empty.")
+    @NotBlank(message = "The attrValue cannot be null or empty.")
     @Size(max = 25, message = "The attrValue must consist max 25 characters.")
     private String attrValue;
     @Column(length = 50, nullable = false, columnDefinition = "VARCHAR(50) DEFAULT '-'")
-    @NotBlank(message = "The attrDesc cannot be null and empty.")
+    @NotBlank(message = "The attrDesc cannot be null or empty.")
     @Size(max = 50, message = "The attrDesc must consist max 50 characters.")
     private String attrDesc;
 
