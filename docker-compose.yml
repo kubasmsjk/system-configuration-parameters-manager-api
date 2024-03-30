@@ -1,0 +1,30 @@
+version: '3'
+
+services:
+  db:
+    image: mysql:8.0.36
+    ports:
+      - "3306:3306"
+    environment:
+      DATABASE_HOST: mysql
+      DATABASE_PORT: 3306
+      MYSQL_ROOT_PASSWORD: eUfEJVF44xC.x@q
+      MYSQL_DATABASE: service
+    volumes:
+      - db-data:/var/lib/mysql
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/service
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: eUfEJVF44xC.x@q
+    depends_on:
+      - db
+volumes:
+  db-data:
+    driver: local
