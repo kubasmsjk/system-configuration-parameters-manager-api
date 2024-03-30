@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="ea59aab9-c4b5-43e8-94bd-c050851252cf" activeEnvironment="Default" name="system-configuration-parameters-manager-soap-test" resourceRoot="" soapui-version="5.7.2" abortOnError="false" runType="SEQUENTIAL" defaultScriptLanguage="Groovy" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="ProjectSettings@hermesConfig">${#System#user.home}\.hermes</con:setting></con:settings><con:interface xsi:type="con:WsdlInterface" id="da034f66-a017-4857-8d8f-dc88334488e6" wsaVersion="NONE" name="SvConfPortSoap11" type="wsdl" bindingName="{http://www.example.com/systemconfigurationparametersmanagerapi/svConf}SvConfPortSoap11" soapVersion="1_1" anonymous="optional" definition="http://localhost:8080/ws/svConf.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:8080/ws/svConf.wsdl"><con:part><con:url>http://localhost:8080/ws/svConf.wsdl</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="http://www.example.com/systemconfigurationparametersmanagerapi/svConf" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:sch="http://www.example.com/systemconfigurationparametersmanagerapi/svConf" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.example.com/systemconfigurationparametersmanagerapi/svConf">
+  <wsdl:types>
+    <xs:schema targetNamespace="http://www.example.com/systemconfigurationparametersmanagerapi/svConf" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:complexType name="svConfInfo">
+        <xs:sequence>
+          <xs:element name="attrName" type="xs:string"/>
+          <xs:element name="attrValue" type="xs:string"/>
+          <xs:element name="attrDesc" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="serviceStatus">
+        <xs:sequence>
+          <xs:element name="status" type="xs:string"/>
+          <xs:element name="message" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="addSvConfRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="svConfInfo" type="tns:svConfInfo"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="addSvConfResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="serviceStatus" type="tns:serviceStatus"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getSvConfRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="attrName" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getSvConfResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="svConfInfo" type="tns:svConfInfo"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="updateSvConfRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="svConfInfo" type="tns:svConfInfo"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="updateSvConfResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="serviceStatus" type="tns:serviceStatus"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="deleteSvConfRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="attrName" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="deleteSvConfResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="serviceStatus" type="tns:serviceStatus"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="getSvConfRequest">
+    <wsdl:part element="tns:getSvConfRequest" name="getSvConfRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getSvConfResponse">
+    <wsdl:part element="tns:getSvConfResponse" name="getSvConfResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deleteSvConfResponse">
+    <wsdl:part element="tns:deleteSvConfResponse" name="deleteSvConfResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="addSvConfRequest">
+    <wsdl:part element="tns:addSvConfRequest" name="addSvConfRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="addSvConfResponse">
+    <wsdl:part element="tns:addSvConfResponse" name="addSvConfResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updateSvConfResponse">
+    <wsdl:part element="tns:updateSvConfResponse" name="updateSvConfResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deleteSvConfRequest">
+    <wsdl:part element="tns:deleteSvConfRequest" name="deleteSvConfRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updateSvConfRequest">
+    <wsdl:part element="tns:updateSvConfRequest" name="updateSvConfRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="SvConfPort">
+    <wsdl:operation name="getSvConf">
+      <wsdl:input message="tns:getSvConfRequest" name="getSvConfRequest"></wsdl:input>
+      <wsdl:output message="tns:getSvConfResponse" name="getSvConfResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteSvConf">
+      <wsdl:input message="tns:deleteSvConfRequest" name="deleteSvConfRequest"></wsdl:input>
+      <wsdl:output message="tns:deleteSvConfResponse" name="deleteSvConfResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addSvConf">
+      <wsdl:input message="tns:addSvConfRequest" name="addSvConfRequest"></wsdl:input>
+      <wsdl:output message="tns:addSvConfResponse" name="addSvConfResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateSvConf">
+      <wsdl:input message="tns:updateSvConfRequest" name="updateSvConfRequest"></wsdl:input>
+      <wsdl:output message="tns:updateSvConfResponse" name="updateSvConfResponse"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SvConfPortSoap11" type="tns:SvConfPort">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getSvConf">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="getSvConfRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getSvConfResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteSvConf">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="deleteSvConfRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="deleteSvConfResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addSvConf">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="addSvConfRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="addSvConfResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateSvConf">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="updateSvConfRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="updateSvConfResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SvConfPortService">
+    <wsdl:port binding="tns:SvConfPortSoap11" name="SvConfPortSoap11">
+      <soap:address location="http://localhost:8080/ws"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8080/ws</con:endpoint><con:endpoint>http://localhost:8081/ws</con:endpoint></con:endpoints><con:operation id="3640eab0-994a-4f6c-97cc-e42bf94c19c6" isOneWay="false" action="" name="addSvConf" bindingOperationName="addSvConf" type="Request-Response" outputName="addSvConfResponse" inputName="addSvConfRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="5c48deb7-d7f5-47ab-bfdd-3bea0ae99083" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:svc="http://www.example.com/systemconfigurationparametersmanagerapi/svConf">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <svc:addSvConfRequest>\r
+         <svConfInfo>\r
+            <attrName>?</attrName>\r
+            <attrValue>?</attrValue>\r
+   			<attrDesc>?</attrDesc>
+         </svConfInfo>\r
+      </svc:addSvConfRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.example.com/systemconfigurationparametersmanagerapi/svConf/SvConfPort/addSvConfRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="624b53a8-0002-4484-8491-3db64974053f" isOneWay="false" action="" name="deleteSvConf" bindingOperationName="deleteSvConf" type="Request-Response" outputName="deleteSvConfResponse" inputName="deleteSvConfRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="18c62c6b-fb9e-46b6-8eb5-6a6159dd594a" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:svc="http://www.example.com/systemconfigurationparametersmanagerapi/svConf">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <svc:deleteSvConfRequest>\r
+         <attrName>?</attrName>\r
+      </svc:deleteSvConfRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.example.com/systemconfigurationparametersmanagerapi/svConf/SvConfPort/deleteSvConfRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="509b0063-5443-40cc-9f02-b1819a927076" isOneWay="false" action="" name="getSvConf" bindingOperationName="getSvConf" type="Request-Response" outputName="getSvConfResponse" inputName="getSvConfRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="c5e8c128-00a7-47ec-a656-38eb794cf9f4" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:svc="http://www.example.com/systemconfigurationparametersmanagerapi/svConf">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <svc:getSvConfRequest>\r
+         <attrName>?</attrName>\r
+      </svc:getSvConfRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.example.com/systemconfigurationparametersmanagerapi/svConf/SvConfPort/getSvConfRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="9a961b03-756b-467d-8cb9-c7f1b7982265" isOneWay="false" action="" name="updateSvConf" bindingOperationName="updateSvConf" type="Request-Response" outputName="updateSvConfResponse" inputName="updateSvConfRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="0142f49c-9ebf-4e5e-bb22-586446077cd4" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:svc="http://www.example.com/systemconfigurationparametersmanagerapi/svConf">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <svc:updateSvConfRequest>
+         <svConfInfo>
+            <attrName>?</attrName>
+            <attrValue>?</attrValue>
+   			<attrDesc>?</attrDesc>
+         </svConfInfo>
+      </svc:updateSvConfRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.example.com/systemconfigurationparametersmanagerapi/svConf/SvConfPort/updateSvConfRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:testSuite id="4760326d-7e0f-4843-a8f4-70e973dad728" name="SvConfPortSoap11 TestSuite"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="4333ec1f-ff12-4d2a-91b7-484dca049e99" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="addSvConf TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="68a927dc-132b-4585-8828-284d2d41bbb1" name="addSvConf"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>SvConfPortSoap11</con:interface><con:operation>addSvConf</con:operation><con:request name="addSvConf" id="2d2ae388-d570-4512-9c86-7a1b2018a2a5"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:svc="http://www.example.com/systemconfigurationparametersmanagerapi/svConf">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <svc:addSvConfRequest>\r
+         <svConfInfo>\r
+            <attrName>name</attrName>\r
+            <attrValue>value</attrValue>\r
+            <attrDesc>description</attrDesc>\r
+         </svConfInfo>\r
+      </svc:addSvConfRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:assertion type="XPath Match" id="60181e1d-6c1a-42ec-90b5-8bc0dd9d0e14" name="XPath Match"><con:configuration><path>declare namespace ns3='http://www.example.com/systemconfigurationparametersmanagerapi/svConf';
+//ns3:addSvConfResponse/serviceStatus/status</path><content>SUCCESS</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="7f509920-850d-453b-ae50-e2f1ba2d01f0" name="XPath Match 1"><con:configuration><path>declare namespace ns3='http://www.example.com/systemconfigurationparametersmanagerapi/svConf';
+//ns3:addSvConfResponse/serviceStatus/message</path><content>SvConf has been added.</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://www.example.com/systemconfigurationparametersmanagerapi/svConf/SvConfPort/addSvConfRequest" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="addExistsSvConf" id="1beaf646-80f5-4e9b-89b4-809b34aec449"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>SvConfPortSoap11</con:interface><con:operation>addSvConf</con:operation><con:request name="addExistsSvConf" id="20da5586-ff2a-4b8c-abd9-1e511c8f75b2"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:svc="http://www.example.com/systemconfigurationparametersmanagerapi/svConf">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <svc:addSvConfRequest>
+         <svConfInfo>
+            <attrName>name</attrName>
+            <attrValue>value</attrValue>
+            <attrDesc>description</attrDesc>
+         </svConfInfo>
+      </svc:addSvConfRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="XPath Match" id="5825fadc-3700-4ea0-b860-f3fe38800d69" name="XPath Match"><con:configuration><path>declare namespace SOAP-ENV='http://schemas.xmlsoap.org/soap/envelope/';
+//SOAP-ENV:Fault/faultcode</path><content>SOAP-ENV:Server</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="0d12ad44-b902-4315-b12f-054d699b5a8e" name="XPath Match 1"><con:configuration><path>declare namespace SOAP-ENV='http://schemas.xmlsoap.org/soap/envelope/';
+//SOAP-ENV:Fault/faultstring</path><content>SvConf with attrName: name already exists.</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="addSvConfValidation" id="076623bc-ae1f-4191-bb16-c9dab4f0c87e"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>SvConfPortSoap11</con:interface><con:operation>addSvConf</con:operation><con:request name="addSvConfValidation" id="f58d2561-aaf7-4cae-a3a1-bd6bb948c4db"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:svc="http://www.example.com/systemconfigurationparametersmanagerapi/svConf">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <svc:addSvConfRequest>\r
+         <svConfInfo>\r
+            <attrName></attrName>\r
+            <attrValue></attrValue>\r
+            <attrDesc></attrDesc>\r
+         </svConfInfo>\r
+      </svc:addSvConfRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:assertion type="XPath Match" id="f7f1dcfe-b6dc-42c2-8c24-4480295409d0" name="XPath Match"><con:configuration><path>declare namespace SOAP-ENV='http://schemas.xmlsoap.org/soap/envelope/';
+//SOAP-ENV:Fault/faultcode</path><content>SOAP-ENV:Server</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="8c0c9646-5bb1-41cc-bc3b-d361da7566d6" name="XPath Match 1"><con:configuration><path>declare namespace SOAP-ENV='http://schemas.xmlsoap.org/soap/envelope/';
+//SOAP-ENV:Fault/faultstring</path><content>ERROR</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="4c3183c4-58c4-4ba0-b175-6509b868230d" name="XPath Match 2"><con:configuration><path>declare namespace SOAP-ENV='http://schemas.xmlsoap.org/soap/envelope/';
+//SOAP-ENV:Fault/detail/attrDesc</path><content>The attrDesc cannot be null or empty.</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="e11e43b7-ac8a-4176-ab07-5b0d151c1ecc" name="XPath Match 3"><con:configuration><path>declare namespace SOAP-ENV='http://schemas.xmlsoap.org/soap/envelope/';
+//SOAP-ENV:Fault/detail/attrValue</path><content>The attrValue cannot be null or empty.</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="0b1d26eb-691f-434f-b8ec-5cc46d8c6bda" name="XPath Match 4"><con:configuration><path>declare namespace SOAP-ENV='http://schemas.xmlsoap.org/soap/envelope/';
+//SOAP-ENV:Fault/detail/attrName</path><content>The attrName cannot be null or empty.</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="bd5f7205-4b77-4356-aeb7-9cd39cc52d0d" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="deleteSvConf TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="93aa5a50-bfef-400c-b796-2403c1bba998" name="deleteSvConf"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>SvConfPortSoap11</con:interface><con:operation>deleteSvConf</con:operation><con:request name="deleteSvConf" id="9d7e5f02-60fa-4254-9009-b4d3229acfdd"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:svc="http://www.example.com/systemconfigurationparametersmanagerapi/svConf">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <svc:deleteSvConfRequest>\r
+         <attrName>name</attrName>\r
+      </svc:deleteSvConfRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:assertion type="XPath Match" id="0538230d-b24a-4b46-91da-868087430026" name="XPath Match"><con:configuration><path>declare namespace SOAP-ENV='http://schemas.xmlsoap.org/soap/envelope/';
+declare namespace ns3='http://www.example.com/systemconfigurationparametersmanagerapi/svConf';
+//ns3:deleteSvConfResponse/serviceStatus/status</path><content>SUCCESS</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="55093110-2a1f-4619-9be1-2939f934a1cd" name="XPath Match 1"><con:configuration><path>declare namespace SOAP-ENV='http://schemas.xmlsoap.org/soap/envelope/';
+declare namespace ns3='http://www.example.com/systemconfigurationparametersmanagerapi/svConf';
+//ns3:deleteSvConfResponse/serviceStatus/message</path><content>SvConf has been deleted.</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://www.example.com/systemconfigurationparametersmanagerapi/svConf/SvConfPort/deleteSvConfRequest" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="deleteExistsSvConf" id="22b1397e-4b80-4828-94b5-da4ed8f713f1"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>SvConfPortSoap11</con:interface><con:operation>addSvConf</con:operation><con:request name="deleteExistsSvConf" id="961c1dac-578f-48e7-b846-2f04c1f885ff"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:svc="http://www.example.com/systemconfigurationparametersmanagerapi/svConf">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <svc:deleteSvConfRequest>
+         <attrName>name</attrName>
+      </svc:deleteSvConfRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="XPath Match" id="2a8d0a96-2e71-4192-a5a5-c73c438ac950" name="XPath Match"><con:configuration><path>declare namespace SOAP-ENV='http://schemas.xmlsoap.org/soap/envelope/';
+//SOAP-ENV:Fault/faultcode</path><content>SOAP-ENV:Server</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="2c469647-8798-488e-a3e7-abaec4a6f5db" name="XPath Match 1"><con:configuration><path>declare namespace SOAP-ENV='http://schemas.xmlsoap.org/soap/envelope/';
+//SOAP-ENV:Fault/faultstring</path><content>SvConf with attrName: name not exists.</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="deleteSvConfValidation" id="01296797-64d0-452b-8d2e-096b12d8fdf2"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>SvConfPortSoap11</con:interface><con:operation>deleteSvConf</con:operation><con:request name="deleteSvConfValidation" id="749026eb-a109-4ea0-839c-540397b8695f"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:svc="http://www.example.com/systemconfigurationparametersmanagerapi/svConf">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <svc:deleteSvConfRequest>\r
+      </svc:deleteSvConfRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:assertion type="XPath Match" id="483ca653-d261-4771-9645-8d1e16f5658b" name="XPath Match"><con:configuration><path>declare namespace SOAP-ENV='http://schemas.xmlsoap.org/soap/envelope/';
+/SOAP-ENV:Envelope/SOAP-ENV:Body/SOAP-ENV:Fault/faultcode</path><content>SOAP-ENV:Server</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="8f56b350-f057-4b0e-8b3e-38b46ff8235f" name="XPath Match 1"><con:configuration><path>declare namespace SOAP-ENV='http://schemas.xmlsoap.org/soap/envelope/';
+/SOAP-ENV:Envelope/SOAP-ENV:Body/SOAP-ENV:Fault/faultstring</path><content>The attrName cannot be null or empty.</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="89b4c4f3-c768-4f67-bcae-1e1c7bea9b3f" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="getSvConf TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="0d9d59bd-8b63-4d83-82d7-6c75dbe2406c" name="getSvConf"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>SvConfPortSoap11</con:interface><con:operation>getSvConf</con:operation><con:request name="getSvConf" id="f2be6b35-7ccb-4a03-b8a4-3f5edc850e6d"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:svc="http://www.example.com/systemconfigurationparametersmanagerapi/svConf">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <svc:getSvConfRequest>\r
+         <attrName>name</attrName>\r
+      </svc:getSvConfRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:assertion type="XPath Match" id="0e5f3eec-6c58-4aae-b88a-bcc83860cdc5" name="XPath Match"><con:configuration><path>declare namespace SOAP-ENV='http://schemas.xmlsoap.org/soap/envelope/';
+declare namespace ns3='http://www.example.com/systemconfigurationparametersmanagerapi/svConf';
+//ns3:getSvConfResponse/svConfInfo/attrName</path><content>name</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="178c56ae-7b3f-43a9-b773-79811f225d2a" name="XPath Match 1"><con:configuration><path>declare namespace SOAP-ENV='http://schemas.xmlsoap.org/soap/envelope/';
+declare namespace ns3='http://www.example.com/systemconfigurationparametersmanagerapi/svConf';
+//ns3:getSvConfResponse/svConfInfo/attrValue</path><content>value</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="b4fc7714-16f6-450c-a152-9fadc8c2e6df" name="XPath Match 2"><con:configuration><path>declare namespace SOAP-ENV='http://schemas.xmlsoap.org/soap/envelope/';
+declare namespace ns3='http://www.example.com/systemconfigurationparametersmanagerapi/svConf';
+//ns3:getSvConfResponse/svConfInfo/attrDesc</path><content>description</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://www.example.com/systemconfigurationparametersmanagerapi/svConf/SvConfPort/getSvConfRequest" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="getNotExistsSvConf" id="0d4208d1-6c96-4efb-9487-5311bb3f3657"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>SvConfPortSoap11</con:interface><con:operation>getSvConf</con:operation><con:request name="getNotExistsSvConf" id="bcba2089-0cc6-441f-afc9-9601f44f3b54"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:svc="http://www.example.com/systemconfigurationparametersmanagerapi/svConf">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <svc:getSvConfRequest>\r
+         <attrName>name1</attrName>\r
+      </svc:getSvConfRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:assertion type="XPath Match" id="fd40c242-4d5e-4b11-9286-d78b6dbdd8b2" name="XPath Match"><con:configuration><path>declare namespace SOAP-ENV='http://schemas.xmlsoap.org/soap/envelope/';
+//SOAP-ENV:Fault/faultcode</path><content>SOAP-ENV:Server</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="478449ba-fd03-492d-ac62-d1c477fe04cc" name="XPath Match 1"><con:configuration><path>declare namespace SOAP-ENV='http://schemas.xmlsoap.org/soap/envelope/';
+//SOAP-ENV:Fault/faultstring</path><content>SvConf with attrName: name1 not exists.</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="getSvConfValidation" id="5d989754-df8c-4b7a-8d47-d547109b7d53"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>SvConfPortSoap11</con:interface><con:operation>getSvConf</con:operation><con:request name="getSvConfValidation" id="848baed6-d627-453d-baec-d4c395e00c71"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:svc="http://www.example.com/systemconfigurationparametersmanagerapi/svConf">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <svc:getSvConfRequest>\r
+      </svc:getSvConfRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:assertion type="XPath Match" id="c1e64591-9602-4466-9543-198ca80d83d2" name="XPath Match"><con:configuration><path>declare namespace SOAP-ENV='http://schemas.xmlsoap.org/soap/envelope/';
+/SOAP-ENV:Envelope/SOAP-ENV:Body/SOAP-ENV:Fault/faultcode</path><content>SOAP-ENV:Server</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="bef6ce9e-08b1-4d78-882a-1dae209d7401" name="XPath Match 1"><con:configuration><path>declare namespace SOAP-ENV='http://schemas.xmlsoap.org/soap/envelope/';
+/SOAP-ENV:Envelope/SOAP-ENV:Body/SOAP-ENV:Fault/faultstring</path><content>The attrName cannot be null or empty.</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="9b89ac68-c4db-4f8d-980b-a8f11c943d53" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="updateSvConf TestCase" searchProperties="true"><con:settings/><con:testStep type="request" id="f174c611-acac-407c-9ad8-d9652739a30a" name="updateSvConf"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>SvConfPortSoap11</con:interface><con:operation>updateSvConf</con:operation><con:request name="updateSvConf" id="1dd90a47-cbd1-41b3-8e7e-7f76419f382f"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:svc="http://www.example.com/systemconfigurationparametersmanagerapi/svConf">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <svc:updateSvConfRequest>\r
+         <svConfInfo>\r
+            <attrName>name</attrName>\r
+            <attrValue>value1</attrValue>\r
+            <attrDesc>description1</attrDesc>\r
+         </svConfInfo>\r
+      </svc:updateSvConfRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:assertion type="XPath Match" id="1dd2dd05-39b1-488f-ab96-b16ed7a86407" name="XPath Match"><con:configuration><path>declare namespace SOAP-ENV='http://schemas.xmlsoap.org/soap/envelope/';
+declare namespace ns3='http://www.example.com/systemconfigurationparametersmanagerapi/svConf';
+//ns3:updateSvConfResponse/serviceStatus/status</path><content>SUCCESS</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="00140bee-a5ac-45b6-9a94-6772695847f3" name="XPath Match 1"><con:configuration><path>declare namespace SOAP-ENV='http://schemas.xmlsoap.org/soap/envelope/';
+declare namespace ns3='http://www.example.com/systemconfigurationparametersmanagerapi/svConf';
+//ns3:updateSvConfResponse/serviceStatus/message</path><content>SvConf has been updated.</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://www.example.com/systemconfigurationparametersmanagerapi/svConf/SvConfPort/updateSvConfRequest" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="updateNotExistsSvConf" id="42588f12-eb54-4286-b18c-a973a6124625"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>SvConfPortSoap11</con:interface><con:operation>updateSvConf</con:operation><con:request name="updateNotExistsSvConf" id="391eeb53-7dac-45c5-a837-cd4fde37f199"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:svc="http://www.example.com/systemconfigurationparametersmanagerapi/svConf">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <svc:updateSvConfRequest>
+         <svConfInfo>
+            <attrName>name1</attrName>
+            <attrValue>value1</attrValue>
+            <attrDesc>description1</attrDesc>
+         </svConfInfo>
+      </svc:updateSvConfRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="XPath Match" id="1cf432fd-1fab-4a15-b8b7-f6fa8568d937" name="XPath Match"><con:configuration><path>declare namespace SOAP-ENV='http://schemas.xmlsoap.org/soap/envelope/';
+//SOAP-ENV:Fault/faultcode</path><content>SOAP-ENV:Server</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="dac83c60-d097-4cd4-a9f7-7fa4420dfd43" name="XPath Match 1"><con:configuration><path>declare namespace SOAP-ENV='http://schemas.xmlsoap.org/soap/envelope/';
+//SOAP-ENV:Fault/faultstring</path><content>SvConf with attrName: name1 not exists.</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="updateSvConfValidation" id="c42d77ef-8977-43bc-8a98-17f8ae8f1a6c"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>SvConfPortSoap11</con:interface><con:operation>updateSvConf</con:operation><con:request name="updateSvConfValidation" id="b0505c4a-5be3-4883-bae8-a4f5e7d9fdc7"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:svc="http://www.example.com/systemconfigurationparametersmanagerapi/svConf">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <svc:updateSvConfRequest>\r
+         <svConfInfo>\r
+            <attrName></attrName>\r
+            <attrValue></attrValue>\r
+            <attrDesc></attrDesc>\r
+         </svConfInfo>\r
+      </svc:updateSvConfRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:assertion type="XPath Match" id="2ba1014d-2fd5-4062-bc85-65f6690e99d7" name="XPath Match"><con:configuration><path>declare namespace SOAP-ENV='http://schemas.xmlsoap.org/soap/envelope/';
+/SOAP-ENV:Envelope/SOAP-ENV:Body/SOAP-ENV:Fault/faultcode</path><content>SOAP-ENV:Server</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="3a31e3d6-bda1-4e20-af47-5e8ee0cf1f08" name="XPath Match 1"><con:configuration><path>declare namespace SOAP-ENV='http://schemas.xmlsoap.org/soap/envelope/';
+/SOAP-ENV:Envelope/SOAP-ENV:Body/SOAP-ENV:Fault/faultstring</path><content>ERROR</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="aae29911-5250-49b0-bb20-adaa20a9b9eb" name="XPath Match 2"><con:configuration><path>declare namespace SOAP-ENV='http://schemas.xmlsoap.org/soap/envelope/';
+/SOAP-ENV:Envelope/SOAP-ENV:Body/SOAP-ENV:Fault/detail/attrName</path><content>The attrName cannot be null or empty.</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="3dfb6b1f-eeb2-46c0-b16f-1e7a17a7b0a7" name="XPath Match 3"><con:configuration><path>declare namespace SOAP-ENV='http://schemas.xmlsoap.org/soap/envelope/';
+/SOAP-ENV:Envelope/SOAP-ENV:Body/SOAP-ENV:Fault/detail/attrValue</path><content>The attrValue cannot be null or empty.</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="240dfbb6-fff3-42d1-9fc1-1000072a77bc" name="XPath Match 4"><con:configuration><path>declare namespace SOAP-ENV='http://schemas.xmlsoap.org/soap/envelope/';
+/SOAP-ENV:Envelope/SOAP-ENV:Body/SOAP-ENV:Fault/detail/attrDesc</path><content>The attrDesc cannot be null or empty.</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/><con:sensitiveInformation/></con:soapui-project>
